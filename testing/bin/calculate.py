@@ -37,6 +37,7 @@ def write(value):
         sys.stdout.write('%d\n' % value)
     else:
         sys.stdout.write('%f\n' % value)
+    sys.stdout.flush()
 
 
 def main():
