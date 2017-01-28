@@ -1,5 +1,6 @@
-from beebot.component import Program
-from beebot.filesystem import path
+import os
+
+from beebot.components import Program
 
 
 class Encoder:
@@ -21,11 +22,11 @@ class Decoder:
         return {'result': result}
 
 
-class Calculate(Program):
+class Calculator(Program):
 
     @property
-    def executable_path(self):
-        return path.join('testing', 'bin', 'calculate.py')
+    def path(self):
+        return os.path.join(self.context.root_dir, 'bin', 'calculator.py')
 
     @property
     def stdin_encoder(self):

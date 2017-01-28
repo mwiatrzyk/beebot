@@ -6,8 +6,15 @@ from beebot.port import InputPort, OutputPort
 
 class Program:
 
+    def __init__(self, context):
+        self._context = context
+
+    @property
+    def context(self):
+        return self._context
+
     def start(self):
-        self._proc = subprocess.Popen(self.executable_path, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        self._proc = subprocess.Popen(self.path, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         self._async_tasks = []
 
     def run(self, task):

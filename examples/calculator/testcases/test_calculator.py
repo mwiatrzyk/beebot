@@ -1,12 +1,18 @@
+import os
 import unittest
 
-from testing.component.calculate import Calculate
+from beebot.context import Context
+
+from calculator.components import Calculator
+
+root_dir = os.path.join(os.path.abspath(os.path.dirname(__file__)), '..')
 
 
 class TestExecutable(unittest.TestCase):
 
     def setUp(self):
-        self.sut = Calculate()
+        self.ctx = Context(root_dir=root_dir)
+        self.sut = Calculator(self.ctx)
 
     def test_check_calculator(self):
         self.sut.start()
